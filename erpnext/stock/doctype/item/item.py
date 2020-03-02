@@ -306,7 +306,7 @@ class Item(WebsiteGenerator):
 		self.set_variant_context(context)
 		self.set_attribute_context(context)
 		self.set_disabled_attributes(context)
-
+		# print(context)
 		return context
 
 	def set_variant_context(self, context):
@@ -323,7 +323,8 @@ class Item(WebsiteGenerator):
 			if not variant and context.variants:
 				# the case when the item is opened for the first time from its list
 				variant = context.variants[0]
-
+			print(context.variants)
+			print(variant)
 			if variant:
 				context.variant = frappe.get_doc("Item", variant)
 
@@ -337,6 +338,9 @@ class Item(WebsiteGenerator):
 						context[fieldname] = value
 
 		if self.slideshow:
+			print(self.as_dict())
+			print(context.variant.slideshow)
+			print(get_slideshow(context.variant))
 			if context.variant and context.variant.slideshow:
 				context.update(get_slideshow(context.variant))
 			else:
