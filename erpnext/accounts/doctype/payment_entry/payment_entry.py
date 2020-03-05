@@ -375,10 +375,11 @@ class PaymentEntry(AccountsController):
 					.format(total_negative_outstanding), InvalidPaymentEntry)
 
 	def set_title(self):
-		if self.payment_type in ("Receive", "Pay"):
-			self.title = self.party
-		else:
-			self.title = self.paid_from + " - " + self.paid_to
+		if not self.title:
+			if self.payment_type in ("Receive", "Pay"):
+				self.title = self.party
+			else:
+				self.title = self.paid_from + " - " + self.paid_to
 
 	def validate_transaction_reference(self):
 		bank_account = self.paid_to if self.payment_type == "Receive" else self.paid_from
