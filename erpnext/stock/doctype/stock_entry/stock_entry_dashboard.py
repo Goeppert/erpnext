@@ -5,7 +5,7 @@ def get_data():
 	return {
 		'fieldname': 'stock_entry',
 		'non_standard_fieldnames': {
-			'Journal Entry': 'reference_name',
+			'Journal Entry': 'reference_name,reference_name_2',
 		},
 		'transactions': [
 			{
