@@ -4,11 +4,11 @@ from frappe import _
 def get_data():
 	return {
 		'fieldname': 'journal_entry',
-		'internal_non_standard_fieldnames': {
-			'Journal Entry': 'reference_name,reference_name_2',
-			'Payment Entry': 'reference_name,reference_name_2',
-			'Purchase Invoice': 'reference_name,reference_name_2',
-			'Stock Entry': 'reference_name,reference_name_2',
+		'internal_ref_type_links': {
+			'Journal Entry': ['journal_entry_ref', 'ref_name'],
+			'Payment Entry': ['journal_entry_ref', 'ref_name'],
+			'Purchase Invoice': ['journal_entry_ref', 'ref_name'],
+			'Stock Entry': ['journal_entry_ref', 'ref_name'],
 		},
 		'transactions': [
 			{
