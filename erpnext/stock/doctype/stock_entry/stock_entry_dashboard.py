@@ -7,10 +7,19 @@ def get_data():
 		'non_standard_fieldnames': {
 			'Journal Entry': 'ref_name',
 		},
+		'internal_ref_type_links': {
+			'Purchase Order': ['stock_entry_ref', 'ref_name'],
+			'Journal Entry': ['stock_entry_ref', 'ref_name'],
+			'Purchase Invoice': ['stock_entry_ref', 'ref_name'],
+		},
 		'transactions': [
 			{
 				'label': _('Payment'),
 				'items': ['Journal Entry']
+			},
+			{
+				'label': _('References'),
+				'items': ['Purchase Order', 'Purchase Invoice']
 			}
 		]
 	}
